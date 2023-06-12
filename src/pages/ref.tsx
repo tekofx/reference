@@ -23,8 +23,10 @@ import {
   EuiBadge,
   EuiToolTip,
   EuiGlobalToastList,
+  EuiListGroup,
 } from "@elastic/eui";
 import { Toast } from "@elastic/eui/src/components/toast/global_toast_list";
+import Header from "../components/starter/header";
 const favoriteVideoGames = [
   {
     title: "Species",
@@ -108,126 +110,131 @@ const Index: FunctionComponent = () => {
         <title>Home</title>
       </Head>
 
-      <EuiPanel>
+      <EuiSpacer size="xxl" />
+      <Header />
+
+      <EuiPanel css={{ paddingLeft: "10%", paddingRight: "10%" }}>
         <EuiTitle size="l">
           <h1>Home</h1>
         </EuiTitle>
 
-        <EuiFlexGroup>
-          <EuiFlexItem grow={8}>
-            {/* Information */}
-            <EuiSpacer size="xxl" />
-            <EuiPanel>
-              <EuiFlexGroup>
-                <EuiFlexItem>
-                  <EuiImage
-                    size="l"
-                    hasShadow
-                    alt="Large image"
-                    src="https://tekofx.github.io/web/img/avatar.jpg"
-                  />
-                </EuiFlexItem>
-                <EuiFlexItem>
-                  <EuiTitle size="l">
-                    <h3>Teko</h3>
-                  </EuiTitle>
-                  <EuiSpacer size="xxl" />
-                  <EuiDescriptionList
-                    type="column"
-                    listItems={favoriteVideoGames}
-                  />
-                </EuiFlexItem>
-              </EuiFlexGroup>
-            </EuiPanel>
-            {/* Colores */}
-            <EuiSpacer size="xxl" />
-            <EuiPanel>
+        {/* Information */}
+        <EuiSpacer size="xxl" id="#basic-info" />
+        <EuiPanel>
+          <EuiFlexGroup>
+            <EuiFlexItem>
+              <EuiImage
+                size="l"
+                hasShadow
+                alt="Large image"
+                src="https://tekofx.github.io/web/img/avatar.jpg"
+              />
+            </EuiFlexItem>
+            <EuiFlexItem>
               <EuiTitle size="l">
-                <h3>Colores</h3>
+                <h3>Teko</h3>
               </EuiTitle>
-              <EuiSpacer size="l" />
-              <EuiFlexGroup wrap responsive={false} gutterSize="xs">
-                {colors.map((color) => (
-                  <EuiFlexItem grow={true} key={color.name}>
-                    <EuiToolTip position="top" content={color.hex}>
-                      <EuiBadge
-                        css={{ width: "100%", height: "4vh" }}
-                        color={color.hex}
-                        onClick={addToasts}
-                      >
-                        <EuiText
-                          textAlign="center"
-                          size="s"
-                          css={{ width: "100%" }}
-                        >
-                          <p>{color.name}</p>
-                        </EuiText>
-                      </EuiBadge>
-                    </EuiToolTip>
-                  </EuiFlexItem>
-                ))}
-              </EuiFlexGroup>
-            </EuiPanel>
+              <EuiSpacer size="xxl" />
+              <EuiDescriptionList
+                type="column"
+                listItems={favoriteVideoGames}
+              />
+            </EuiFlexItem>
+          </EuiFlexGroup>
+        </EuiPanel>
 
-            {/* About */}
-            <EuiSpacer size="xxl" />
-            <EuiPanel>
-              <EuiTitle size="l">
-                <h3>About</h3>
-              </EuiTitle>
-              <EuiText>
-                <p style={{ textAlign: "justify" }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-                  maiores sequi repellat sit tenetur porro, dolor numquam vero
-                  asperiores fugit sunt, perferendis alias deleniti expedita
-                  quae voluptate delectus aut iure. Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Impedit, blanditiis. Maiores,
-                  soluta iure. Laborum nemo sed nobis, sint debitis maiores
-                  corrupti nisi voluptas, itaque aliquid praesentium mollitia
-                  dicta temporibus omnis!Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Nisi maiores sequi repellat sit tenetur
-                  porro, dolor numquam vero asperiores fugit sunt, perferendis
-                  alias deleniti expedita quae voluptate delectus aut iure.
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Impedit, blanditiis. Maiores, soluta iure. Laborum nemo sed
-                  nobis, sint debitis maiores corrupti nisi voluptas, itaque
-                  aliquid praesentium mollitia dicta temporibus omnis!Lorem
-                  ipsum dolor sit amet consectetur adipisicing elit. Nisi
-                  maiores sequi repellat sit tenetur porro, dolor numquam vero
-                  asperiores fugit sunt, perferendis alias deleniti expedita
-                  quae voluptate delectus aut iure. Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Impedit, blanditiis. Maiores,
-                  soluta iure. Laborum nemo sed nobis, sint debitis maiores
-                  corrupti nisi voluptas, itaque aliquid praesentium mollitia
-                  dicta temporibus omnis!
-                </p>
-              </EuiText>
-            </EuiPanel>
+        {/* Reference */}
+        <EuiSpacer size="xxl" />
+        <EuiPanel>
+          <EuiTitle size="l">
+            <h3>Referencia</h3>
+          </EuiTitle>
+          <EuiImage
+            hasShadow
+            width={"100%"}
+            alt="Large image"
+            src="https://tekofx.github.io/web/img/ref-small.jpg"
+          />
+        </EuiPanel>
+        {/* Colores */}
+        <EuiSpacer size="xxl" />
+        <EuiPanel>
+          <EuiTitle size="l">
+            <h3>Colores</h3>
+          </EuiTitle>
+          <EuiSpacer size="l" />
+          <EuiFlexGroup wrap responsive={false} gutterSize="xs">
+            {colors.map((color) => (
+              <EuiFlexItem grow={true} key={color.name}>
+                <EuiToolTip position="top" content={color.hex}>
+                  <EuiBadge
+                    css={{ width: "100%", height: "4vh" }}
+                    color={color.hex}
+                    onClick={addToasts}
+                  >
+                    <EuiText
+                      textAlign="center"
+                      size="s"
+                      css={{ width: "100%" }}
+                    >
+                      <p>{color.name}</p>
+                    </EuiText>
+                  </EuiBadge>
+                </EuiToolTip>
+              </EuiFlexItem>
+            ))}
+          </EuiFlexGroup>
+        </EuiPanel>
 
-            {/* Gallery */}
-            <EuiSpacer size="xxl" />
-            <EuiPanel>
-              <EuiTitle size="l">
-                <h3>Galeria</h3>
-              </EuiTitle>
-              <EuiSpacer size="l" />
-              <EuiFlexGrid columns={3}>
-                {images.map((image) => (
-                  <EuiFlexItem grow={true} key={image.src}>
-                    <EuiImage
-                      size="l"
-                      hasShadow
-                      alt={image.alt}
-                      src={image.src}
-                    />
-                  </EuiFlexItem>
-                ))}
-              </EuiFlexGrid>
-            </EuiPanel>
-          </EuiFlexItem>
+        {/* About */}
+        <EuiSpacer size="xxl" />
+        <EuiPanel>
+          <EuiTitle size="l">
+            <h3>About</h3>
+          </EuiTitle>
+          <EuiText>
+            <p style={{ textAlign: "justify" }}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+              maiores sequi repellat sit tenetur porro, dolor numquam vero
+              asperiores fugit sunt, perferendis alias deleniti expedita quae
+              voluptate delectus aut iure. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Impedit, blanditiis. Maiores, soluta
+              iure. Laborum nemo sed nobis, sint debitis maiores corrupti nisi
+              voluptas, itaque aliquid praesentium mollitia dicta temporibus
+              omnis!Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Nisi maiores sequi repellat sit tenetur porro, dolor numquam vero
+              asperiores fugit sunt, perferendis alias deleniti expedita quae
+              voluptate delectus aut iure. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Impedit, blanditiis. Maiores, soluta
+              iure. Laborum nemo sed nobis, sint debitis maiores corrupti nisi
+              voluptas, itaque aliquid praesentium mollitia dicta temporibus
+              omnis!Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Nisi maiores sequi repellat sit tenetur porro, dolor numquam vero
+              asperiores fugit sunt, perferendis alias deleniti expedita quae
+              voluptate delectus aut iure. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Impedit, blanditiis. Maiores, soluta
+              iure. Laborum nemo sed nobis, sint debitis maiores corrupti nisi
+              voluptas, itaque aliquid praesentium mollitia dicta temporibus
+              omnis!
+            </p>
+          </EuiText>
+        </EuiPanel>
 
-          <EuiFlexItem>texto</EuiFlexItem>
-        </EuiFlexGroup>
+        {/* Gallery */}
+        <EuiSpacer size="xxl" />
+        <EuiPanel>
+          <EuiTitle size="l">
+            <h3>Galeria</h3>
+          </EuiTitle>
+          <EuiSpacer size="l" />
+          <EuiFlexGrid columns={3}>
+            {images.map((image) => (
+              <EuiFlexItem grow={true} key={image.src}>
+                <EuiImage size="l" hasShadow alt={image.alt} src={image.src} />
+              </EuiFlexItem>
+            ))}
+          </EuiFlexGrid>
+        </EuiPanel>
 
         {/* Toast */}
         <EuiGlobalToastList
