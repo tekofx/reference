@@ -48,6 +48,37 @@ const favoriteVideoGames = [
   },
 ];
 
+const images = [
+  {
+    src: "https://source.unsplash.com/400x200/?nature",
+    alt: "Nature",
+  },
+  {
+    src: "https://source.unsplash.com/400x200/?water",
+    alt: "Water",
+  },
+  {
+    src: "https://source.unsplash.com/400x800/?tree",
+    alt: "Tree",
+  },
+  {
+    src: "https://source.unsplash.com/400x200/?nature",
+    alt: "Nature",
+  },
+  {
+    src: "https://source.unsplash.com/800x200/?water",
+    alt: "Water",
+  },
+  {
+    src: "https://source.unsplash.com/400x200/?water",
+    alt: "Water",
+  },
+  {
+    src: "https://source.unsplash.com/400x200/?water",
+    alt: "Water",
+  },
+];
+
 const toast: Toast = {
   id: "1",
   title: "Color copiado",
@@ -77,65 +108,134 @@ const Index: FunctionComponent = () => {
         <title>Home</title>
       </Head>
 
-      <Wrapper>
+      <EuiPanel>
         <EuiTitle size="l">
           <h1>Home</h1>
         </EuiTitle>
-        <EuiSpacer size="xxl" />
-        {/* Information */}
-        <EuiPanel>
-          <EuiFlexGroup>
-            <EuiFlexItem>
-              <EuiImage
-                size="l"
-                hasShadow
-                alt="Large image"
-                src="https://tekofx.github.io/web/img/avatar.jpg"
-              />
-            </EuiFlexItem>
-            <EuiFlexItem>
+
+        <EuiFlexGroup>
+          <EuiFlexItem grow={8}>
+            {/* Information */}
+            <EuiSpacer size="xxl" />
+            <EuiPanel>
+              <EuiFlexGroup>
+                <EuiFlexItem>
+                  <EuiImage
+                    size="l"
+                    hasShadow
+                    alt="Large image"
+                    src="https://tekofx.github.io/web/img/avatar.jpg"
+                  />
+                </EuiFlexItem>
+                <EuiFlexItem>
+                  <EuiTitle size="l">
+                    <h3>Teko</h3>
+                  </EuiTitle>
+                  <EuiSpacer size="xxl" />
+                  <EuiDescriptionList
+                    type="column"
+                    listItems={favoriteVideoGames}
+                  />
+                </EuiFlexItem>
+              </EuiFlexGroup>
+            </EuiPanel>
+            {/* Colores */}
+            <EuiSpacer size="xxl" />
+            <EuiPanel>
               <EuiTitle size="l">
-                <h3>Teko</h3>
+                <h3>Colores</h3>
               </EuiTitle>
-              <EuiSpacer size="xxl" />
-              <EuiDescriptionList
-                type="column"
-                listItems={favoriteVideoGames}
-              />
-            </EuiFlexItem>
-          </EuiFlexGroup>
-        </EuiPanel>
-        <EuiSpacer size="xxl" />
-        {/* Colores */}
-        <EuiPanel>
-          <EuiTitle size="l">
-            <h3>Colores</h3>
-          </EuiTitle>
-          <EuiSpacer size="l" />
-          <EuiFlexGroup wrap responsive={false} gutterSize="xs">
-            {colors.map((color) => (
-              <EuiFlexItem grow={true} key={color.name}>
-                <EuiToolTip position="top" content={color.hex}>
-                  <EuiBadge
-                    css={{ width: "100%", height: "4vh" }}
-                    color={color.hex}
-                    onClick={addToasts}
-                  >
-                    <EuiText>
-                      <p>{color.name}</p>
-                    </EuiText>
-                  </EuiBadge>
-                </EuiToolTip>
-              </EuiFlexItem>
-            ))}
-          </EuiFlexGroup>
-        </EuiPanel>
+              <EuiSpacer size="l" />
+              <EuiFlexGroup wrap responsive={false} gutterSize="xs">
+                {colors.map((color) => (
+                  <EuiFlexItem grow={true} key={color.name}>
+                    <EuiToolTip position="top" content={color.hex}>
+                      <EuiBadge
+                        css={{ width: "100%", height: "4vh" }}
+                        color={color.hex}
+                        onClick={addToasts}
+                      >
+                        <EuiText
+                          textAlign="center"
+                          size="s"
+                          css={{ width: "100%" }}
+                        >
+                          <p>{color.name}</p>
+                        </EuiText>
+                      </EuiBadge>
+                    </EuiToolTip>
+                  </EuiFlexItem>
+                ))}
+              </EuiFlexGroup>
+            </EuiPanel>
+
+            {/* About */}
+            <EuiSpacer size="xxl" />
+            <EuiPanel>
+              <EuiTitle size="l">
+                <h3>About</h3>
+              </EuiTitle>
+              <EuiText>
+                <p style={{ textAlign: "justify" }}>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+                  maiores sequi repellat sit tenetur porro, dolor numquam vero
+                  asperiores fugit sunt, perferendis alias deleniti expedita
+                  quae voluptate delectus aut iure. Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Impedit, blanditiis. Maiores,
+                  soluta iure. Laborum nemo sed nobis, sint debitis maiores
+                  corrupti nisi voluptas, itaque aliquid praesentium mollitia
+                  dicta temporibus omnis!Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Nisi maiores sequi repellat sit tenetur
+                  porro, dolor numquam vero asperiores fugit sunt, perferendis
+                  alias deleniti expedita quae voluptate delectus aut iure.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Impedit, blanditiis. Maiores, soluta iure. Laborum nemo sed
+                  nobis, sint debitis maiores corrupti nisi voluptas, itaque
+                  aliquid praesentium mollitia dicta temporibus omnis!Lorem
+                  ipsum dolor sit amet consectetur adipisicing elit. Nisi
+                  maiores sequi repellat sit tenetur porro, dolor numquam vero
+                  asperiores fugit sunt, perferendis alias deleniti expedita
+                  quae voluptate delectus aut iure. Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Impedit, blanditiis. Maiores,
+                  soluta iure. Laborum nemo sed nobis, sint debitis maiores
+                  corrupti nisi voluptas, itaque aliquid praesentium mollitia
+                  dicta temporibus omnis!
+                </p>
+              </EuiText>
+            </EuiPanel>
+
+            {/* Gallery */}
+            <EuiSpacer size="xxl" />
+            <EuiPanel>
+              <EuiTitle size="l">
+                <h3>Galeria</h3>
+              </EuiTitle>
+              <EuiSpacer size="l" />
+              <EuiFlexGrid columns={3}>
+                {images.map((image) => (
+                  <EuiFlexItem grow={true} key={image.src}>
+                    <EuiImage
+                      size="l"
+                      hasShadow
+                      alt={image.alt}
+                      src={image.src}
+                    />
+                  </EuiFlexItem>
+                ))}
+              </EuiFlexGrid>
+            </EuiPanel>
+          </EuiFlexItem>
+
+          <EuiFlexItem>texto</EuiFlexItem>
+        </EuiFlexGroup>
+
+        {/* Toast */}
         <EuiGlobalToastList
           toasts={toasts}
           dismissToast={removeToast}
           toastLifeTimeMs={6000}
         />
-      </Wrapper>
+      </EuiPanel>
     </>
   );
 };
